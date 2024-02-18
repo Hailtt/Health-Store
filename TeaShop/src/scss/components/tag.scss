@@ -1,0 +1,20 @@
+.ks-tag {
+  cursor: pointer;
+  color: $color-text;
+  background: transparent;
+  display: inline-block;
+  line-height: 1;
+  z-index: 1;
+  margin-right: 5px;
+  &::after {
+    content: ',';
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+}

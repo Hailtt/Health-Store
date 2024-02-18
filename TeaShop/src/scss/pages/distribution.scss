@@ -1,0 +1,119 @@
+.ks-distribution {
+  &-layout {
+    @include flex-space-between-hoz;
+    margin-block: 70px;
+
+    @include breakpoint-down(phone) {
+      margin-block: 30px;
+    }
+
+    > .sidebar {
+      @include flex-column;
+      gap: 50px;
+
+      @include breakpoint-down(tablet) {
+        width: 300px;
+      }
+
+      @include breakpoint-down(phone) {
+        display: none;
+      }
+    }
+
+    > .content > .title {
+      font-size: 44px;
+      color: $color-success;
+      font-weight: $fw-semibold;
+      text-transform: capitalize;
+
+      @include breakpoint-down(smallphone) {
+        font-size: 32px;
+      }
+    }
+
+    .inner {
+      gap: 10px;
+      @include flex-center-ver;
+    }
+
+    .icon {
+      margin-right: 40px;
+      font-size: $fs-normal;
+      font-weight: $fw-bold;
+      @include size(14px, 14px);
+
+      @include breakpoint-down(smallphone) {
+        margin-right: 20px;
+      }
+      @include breakpoint-down(xsmallphone) {
+        margin-right: 0px;
+      }
+    }
+
+    .-text {
+      color: $color-success;
+      font-weight: $fw-semibold;
+    }
+
+    .city.-text {
+      font-size: 32px;
+
+      @include breakpoint-down(smallphone) {
+        font-size: 28px;
+      }
+      @include breakpoint-down(xsmallphone) {
+        font-size: 24px;
+      }
+    }
+
+    .district.-text {
+      font-size: 24px;
+
+      @include breakpoint-down(smallphone) {
+        font-size: 22px;
+      }
+      @include breakpoint-down(xsmallphone) {
+        font-size: 20px;
+      }
+    }
+
+    .branch.-text {
+      font-size: 18px;
+      font-weight: $fw-medium;
+      margin-left: 50px;
+
+      @include breakpoint-down(smallphone) {
+        margin-left: 30px;
+      }
+
+      @include breakpoint-down(xsmallphone) {
+        font-size: 16px;
+        margin-left: 10px;
+      }
+    }
+
+    .MuiPaper-root {
+      box-shadow: none;
+    }
+
+    .Mui-expanded {
+      margin: 0;
+      min-height: auto;
+      color: $color-success;
+    }
+
+    .MuiButtonBase-root {
+      padding: 0;
+      min-height: auto;
+    }
+
+    .MuiCollapse-wrapper {
+      padding: 0;
+      margin-left: 0;
+    }
+
+    .MuiAccordionSummary-content {
+      margin: 0;
+    }
+  }
+}

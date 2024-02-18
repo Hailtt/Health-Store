@@ -1,0 +1,1013 @@
+.ks-home {
+  &-slides {
+    position: relative;
+    width: 100%;
+    user-select: none;
+    margin-bottom: 60px;
+
+    > .action {
+      @include abs-center-ver;
+      @include size(91px, auto);
+      background: rgba(#f7f7f7, 0.5);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.15s linear 0.2s;
+
+      > .icon {
+        color: $color-success;
+      }
+
+      &:hover {
+        background: $color-primary;
+      }
+
+      &.-right {
+        right: 3%;
+      }
+
+      &.-left {
+        left: 3%;
+      }
+
+      @include breakpoint-down(desktop) {
+        display: none;
+      }
+    }
+
+    > .swiper {
+      position: relative;
+      z-index: 1 !important;
+    }
+
+    .swiper-pagination-bullet {
+      @include circle(12px);
+      @include breakpoint-up(desktop) {
+        display: none;
+      }
+      background: $color-success;
+      opacity: 1;
+      &:hover {
+        background: $color-primary;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      background: $color-primary;
+    }
+
+    &:hover > .action {
+      opacity: 1;
+    }
+  }
+
+  &-slide {
+    position: relative;
+
+    ._overflow-hidden {
+      overflow: hidden;
+    }
+
+    ._translateY-hidden {
+      display: flex;
+      transform: translateY(100%);
+      transition: transform 0.4s ease-out 1.2s;
+    }
+
+    ._translateY-show {
+      transform: translateY(0);
+    }
+
+    ._delay {
+      transition-delay: 1.6s;
+    }
+
+    > .image {
+      height: 65vh;
+      @include breakpoint-down(xlargedesktop) {
+        height: 86vh;
+      }
+
+      @include breakpoint-down(largedesktop) {
+        height: 85vh;
+      }
+
+      @include breakpoint-down(mediumdesktop) {
+        height: 80vh;
+      }
+
+      @include breakpoint-down(desktop) {
+        height: 70vh;
+      }
+
+      @include breakpoint-down(smalldesktop) {
+        height: 80vh;
+      }
+
+      @include breakpoint-down(phone) {
+        height: 70vh;
+      }
+
+      @include breakpoint-down(smallphone) {
+        height: 50vh;
+      }
+    }
+
+    > .content {
+      @include abs-center-ver;
+      width: 100%;
+      padding-inline: 10%;
+      z-index: 2;
+
+      @include breakpoint-down(smalldesktop) {
+        padding-inline: 5%;
+      }
+    }
+
+    > .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba($black, 0.3);
+      z-index: 1;
+
+      @include breakpoint-up(phone) {
+        display: none;
+      }
+    }
+
+    > .content > .inner > .ks-home-slide-button > .action {
+      height: 50px;
+      font-size: 14px;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+
+    > .content > .inner > .title > .text {
+      font-size: 61px;
+      line-height: 1.1;
+      font-weight: $fw-bold;
+
+      &.-light {
+        color: $white;
+      }
+
+      @include breakpoint-down(tablet) {
+        font-size: 45px;
+      }
+
+      @include breakpoint-down(phone) {
+        color: $white;
+      }
+
+      @include breakpoint-down(smallphone) {
+        font-size: 31px;
+      }
+    }
+
+    > .content > .inner > .caption {
+      margin-block: 18px;
+    }
+
+    > .content > .inner > .caption > .text {
+      font-size: 18px;
+      font-weight: $fw-medium;
+      color: #697379;
+      text-shadow: $shadow-primary;
+
+      &.-light {
+        color: $white;
+      }
+
+      @include breakpoint-down(phone) {
+        color: $white;
+      }
+
+      @include breakpoint-down(smallphone) {
+        font-size: 17px;
+      }
+    }
+
+    &.-next > .content > .inner {
+      @include hidden;
+      transform: translateY(-50px);
+    }
+
+    &.-current > .content > .inner {
+      @include visible;
+      transform: translateY(0);
+    }
+
+    &.-active > .image {
+      animation: animation-scale 10s;
+    }
+
+    @keyframes animation-scale {
+      from {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &-banners {
+    margin-bottom: 60px;
+    > .content > .wrapper {
+      @include flex-center();
+      gap: 20px;
+      @include breakpoint-down(phone) {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  }
+
+  &-banner {
+    width: 100%;
+
+    &.-small {
+      height: 250px;
+    }
+    &.-medium {
+      height: 300px;
+    }
+
+    > .wrapper > .link {
+      @include size(100%, 100%);
+    }
+
+    > .wrapper > .link {
+      @include size(100%, 100%);
+    }
+
+    > .wrapper {
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 5px;
+      color: inherit;
+
+      &:hover > .link {
+        transform: scale(1.1);
+      }
+
+      &:hover > .info > .inner > .link > .-underline::after {
+        width: 0px;
+      }
+    }
+
+    > .wrapper > .info {
+      padding: 30px 30px 15px 40px;
+      cursor: pointer;
+      position: absolute;
+      inset: 0;
+      color: inherit;
+
+      @include breakpoint-down(mediumdesktop) {
+        padding: 30px;
+      }
+
+      @include breakpoint-down(phone) {
+        @include flex-column;
+        height: 100%;
+        align-items: flex-start;
+        padding: 30px;
+      }
+    }
+
+    > .wrapper > .info > .inner > .title {
+      font-size: 40px;
+      font-weight: $fw-semibold;
+      margin-bottom: 5px;
+      line-height: 44px;
+      color: inherit;
+
+      @include breakpoint-down(desktop) {
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+      @include breakpoint-down(phone) {
+        font-size: 30px;
+        line-height: 30px;
+      }
+    }
+
+    > .wrapper > .info > .inner > .description {
+      color: $color-gray-500;
+      margin-bottom: 70px;
+    }
+
+    > .wrapper > .info > .inner > .link {
+      display: inline;
+      padding-bottom: 4px;
+
+      @include breakpoint-down(phone) {
+        margin-top: auto;
+        display: block;
+      }
+    }
+
+    > .wrapper > .info > .inner > .link > .text {
+      padding-bottom: 2px;
+    }
+
+    > .wrapper > .info > .inner > .link > .icon {
+      font-size: 10px;
+      margin-left: 5px;
+    }
+
+    &.-medium {
+      height: 300px;
+    }
+
+    &.-medium > .wrapper > .info {
+      padding: 70px 70px 70px 130px;
+      transition: all 0.5s ease;
+
+      @include breakpoint-down(mediumdesktop) {
+        padding: 30px;
+      }
+    }
+
+    &.-medium > .wrapper > .info > .inner {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      max-width: 365px;
+      height: 161px;
+    }
+
+    &.-medium > .wrapper > .info > .inner > .title {
+      margin-bottom: 10px;
+    }
+
+    &.-medium > .wrapper > .info > .inner > .description {
+      margin-bottom: 15px;
+    }
+  }
+
+  &-products {
+    position: relative;
+    margin-bottom: 60px;
+
+    @include breakpoint-down(phone) {
+      margin-bottom: 100px;
+    }
+    > .content > .header {
+      @include flex-center-ver;
+      justify-content: space-between;
+      margin-bottom: 25px;
+
+      @include breakpoint-down(phone) {
+        justify-content: center;
+      }
+    }
+
+    > .content > .header > .title {
+      line-height: 1.1;
+      color: $color-success;
+    }
+
+    > .content > .header > .readmore {
+      @include flex-center;
+      font-size: 14px;
+      font-weight: $fw-bold;
+      color: $color-primary;
+      margin-left: 6px;
+
+      &.-bottom {
+        @include breakpoint-down(phone) {
+          @include abs-center-hoz;
+          bottom: -50px;
+        }
+      }
+    }
+
+    > .content > .header > .readmore > .action > .icon {
+      margin-left: 6px;
+      font-size: 12px;
+    }
+  }
+
+  &-collections {
+    margin-bottom: 60px;
+
+    > .content > .header > .title {
+      margin-bottom: 30px;
+
+      @include breakpoint-down(phone) {
+        text-align: center;
+      }
+    }
+
+    > .content > .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 50px;
+      @include breakpoint-down(desktop) {
+        grid-gap: 30px;
+      }
+
+      @include breakpoint-down(tablet) {
+        grid-gap: 15px;
+      }
+
+      @include breakpoint-down(phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 20px;
+      }
+    }
+
+    > .content > .grid > .card {
+      padding: 0;
+      max-width: 480px;
+      position: relative;
+      margin-inline: auto;
+      overflow: hidden;
+
+      &:first-child {
+        border-radius: 50px;
+      }
+
+      &:nth-child(2) {
+        border-radius: 100%;
+      }
+
+      &:last-child {
+        border-radius: 240px 240px 50px 50px;
+      }
+    }
+  }
+
+  &-collection {
+    > .thumbnail {
+      position: relative;
+      width: 100%;
+
+      &::after {
+        content: '';
+        transition: all 0.5s ease;
+        opacity: 0.8;
+        z-index: 1;
+        background: linear-gradient(180deg, transparent 48.33%, #000000 100%);
+
+        @include position(absolute, null, null, 0px, 0px);
+
+        @include size(100%, 100%);
+      }
+    }
+
+    > .thumbnail > .link {
+      width: 100%;
+    }
+
+    > .thumbnail > .link > .image {
+      transition: all 0.5s ease;
+    }
+
+    > .container {
+      width: 100%;
+      z-index: 2;
+      padding: 30px 30px 60px 30px;
+
+      @include flex-center-column;
+
+      @include position(absolute, null, null, 0 null);
+
+      @include breakpoint-down(smalldesktop) {
+        padding: 15px;
+      }
+    }
+
+    > .container > .title {
+      font-size: 30px;
+      margin-bottom: 3px;
+      text-align: center;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      @include truncate-multiline-new(2);
+
+      @include breakpoint-down(desktop) {
+        font-size: 24px;
+      }
+    }
+
+    > .container > .btn {
+      margin-top: 18px;
+      padding: 10px 30px;
+      border-radius: 5px;
+      background-color: none;
+      box-sizing: border-box;
+      border: 1px solid $white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $white;
+      }
+
+      &:hover > .link,
+      &:hover > .link > .icon {
+        color: $black;
+        fill: $black;
+      }
+
+      @include breakpoint-down(smalldesktop) {
+        padding: 2px 5px;
+      }
+    }
+
+    > .container > .btn > .link {
+      color: $white;
+      transition: all 0.2s ease;
+    }
+
+    > .container > .btn > .link > .icon {
+      fill: $white;
+      color: $white;
+      font-size: 12px;
+      margin-left: 8px;
+      transition: all 0.2s ease;
+    }
+
+    &:hover > .thumbnail::after {
+      height: 120%;
+    }
+
+    &:hover > .thumbnail > .link > .image {
+      transform: scale(1.1);
+      width: 100%;
+    }
+  }
+
+  &-quantity {
+    position: relative;
+    margin-bottom: 60px;
+    background-color: #f4f4f4;
+    padding: 60px 30px;
+    &::before {
+      content: '';
+      background-image: url('https://demo2.wpopal.com/teapoz/wp-content/uploads/2023/05/h1_bg.png');
+      display: block;
+      mix-blend-mode: initial;
+      opacity: 0.4;
+      inset: 0;
+      position: absolute;
+    }
+
+    > .content {
+      @include square(100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-inline: 0px;
+      place-items: center;
+
+      @include breakpoint-down(phone) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    > .content > .quantity {
+      height: 405px;
+      z-index: 1;
+      background-color: $white;
+      padding: 40px 80px;
+      text-align: center;
+
+      @include breakpoint-down(desktop) {
+        padding: 50px 30px;
+        height: fit-content;
+        padding-inline: 5px !important;
+        @include square(100%);
+      }
+
+      &:hover > .image > .icon::before,
+      &:hover > .image > .icon.-right::before {
+        @include square(115%);
+        top: -10px;
+        left: -10px;
+      }
+
+      &:hover > .link > .text::after {
+        width: 0px;
+      }
+    }
+
+    > .content > .quantity > .image {
+      margin-bottom: 15px;
+    }
+
+    > .content > .quantity > .image > .icon {
+      @include size(fit-content, fit-content);
+      margin: 0 auto;
+      z-index: 4;
+      position: relative;
+
+      &::before {
+        content: '';
+        @include position(absolute, 19px, null, null, -10px);
+        @include circle(40px);
+        background-color: $color-primary;
+        z-index: -1;
+        transition: 0.4s all;
+      }
+    }
+
+    > .content > .quantity > .image > .icon.-right {
+      @include size(fit-content, fit-content);
+      margin: 0 auto;
+      z-index: 4;
+      position: relative;
+
+      &::before {
+        content: '';
+        @include position(absolute, 21px, null, null, 56px);
+        @include circle(40px);
+        background-color: $color-primary;
+        z-index: -1;
+        transition: 0.4s all;
+      }
+    }
+
+    > .content > .quantity > .title {
+      font-size: 12px;
+      font-weight: $fw-medium;
+      text-transform: uppercase;
+      line-height: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      fill: $color-black-fill;
+      color: $color-primary;
+    }
+
+    > .content > .quantity > .name {
+      font-size: 24px;
+      font-weight: $fw-semibold;
+      line-height: 28px;
+      letter-spacing: 0;
+      margin-bottom: 15px;
+      color: $color-success;
+      fill: $color-black-fill;
+
+      @include breakpoint-down(desktop) {
+        padding-inline: 20px;
+      }
+    }
+
+    > .content > .quantity > .description {
+      color: $color-success;
+      fill: $color-black-fill;
+      font-weight: $fw-medium;
+      line-height: 24px;
+      margin: 0px 0px 20px;
+      text-align: center;
+
+      @include breakpoint-down(desktop) {
+        padding-inline: 10px;
+      }
+    }
+
+    > .content > .quantity > .link {
+      height: unset;
+      position: relative;
+      color: $black;
+      font-size: 14px;
+      font-weight: $fw-semibold;
+    }
+    > .content > .quantity > .link > .icon {
+      margin-left: 6px;
+    }
+  }
+
+  &-testimonials {
+    padding-block: 50px;
+    background-image: url('/images/home/testimonialBackground.png');
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 60px;
+    > .content {
+      padding-inline: 80px;
+
+      @include breakpoint-down(tablet) {
+        padding-inline: 30px;
+      }
+    }
+
+    > .content > .header > .title {
+      font-size: 34px;
+      text-align: center;
+      font-weight: $fw-semibold;
+      line-height: 1;
+      color: $white;
+      text-shadow: $shadow-primary;
+      margin-bottom: 60px;
+    }
+
+    > .content > .swiper {
+      margin: 0px 80px;
+      overflow: unset;
+      overflow-x: clip;
+      @include breakpoint-down(tablet) {
+        margin: unset;
+      }
+    }
+  }
+
+  &-testimonial {
+    // background-image: url('/images/home/backgroundReview.png');
+    background-color: rgba($white, 0.87);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    min-height: 250px;
+    padding-inline: 30px;
+    padding-bottom: 20px;
+
+    > .info {
+      @include flex-center-column;
+      margin-bottom: 16px;
+      position: relative;
+      padding-top: 65px;
+    }
+
+    > .info > .avatar {
+      @include circle(90px);
+      margin-top: -110px;
+      margin-bottom: 16px;
+    }
+
+    > .info > .name {
+      color: $color-primary;
+      font-size: 24px;
+      font-weight: $fw-bold;
+      line-height: 28px;
+      margin-bottom: 4px;
+    }
+
+    > .info > .address {
+      font-size: 14px;
+      color: rgba($black, 0.5);
+    }
+
+    > .review {
+      @include flex-center;
+    }
+
+    > .review > .text {
+      text-align: center;
+      color: rgba($black, 0.7);
+    }
+  }
+
+  &-blogs {
+    position: relative;
+    margin-bottom: 60px;
+
+    @include breakpoint-down(phone) {
+      margin-bottom: 100px;
+    }
+
+    > .content > .header {
+      @include flex-center-ver;
+      justify-content: space-between;
+      margin-bottom: 25px;
+
+      @include breakpoint-down(phone) {
+        justify-content: center;
+      }
+    }
+
+    > .content > .header > .title {
+      @include title;
+    }
+
+    > .content > .header > .viewmore {
+      @include flex-center;
+      font-size: 14px;
+      font-weight: $fw-bold;
+      color: $color-primary;
+      margin-left: 6px;
+
+      &.-bottom {
+        @include breakpoint-down(phone) {
+          @include abs-center-hoz;
+          bottom: -50px;
+        }
+      }
+    }
+
+    > .content > .header > .viewmore > .action > .icon {
+      margin-left: 6px;
+      font-size: 12px;
+    }
+  }
+
+  &-trailer {
+    height: 620px;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint-down(smalldesktop) {
+      height: 500px;
+    }
+
+    > .video {
+      @include size(100%, 100%);
+      transform: scale(2);
+      position: relative;
+    }
+
+    > .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba($black, 0.5);
+
+      @include breakpoint-down(phone) {
+        background-color: rgba(#666, 1);
+      }
+    }
+
+    > .content {
+      position: absolute;
+      inset: 0;
+    }
+
+    > .content > .info {
+      @include flex-center-column();
+      height: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      z-index: 3;
+      position: relative;
+      @include breakpoint-down(phone) {
+        padding-inline: 16px;
+      }
+    }
+
+    > .content > .info > .heading {
+      color: $color-primary;
+      text-transform: uppercase;
+      font-size: $fs-normal;
+      margin-bottom: 20px;
+      line-height: 14px;
+    }
+    > .content > .info > .title {
+      text-align: center;
+      color: $white;
+      font-size: 30px;
+      letter-spacing: -1px;
+      font-weight: $fw-semibold;
+      line-height: 54px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+
+      @include breakpoint-down(smalldesktop) {
+        font-size: 26px;
+        line-height: 36px;
+      }
+    }
+
+    > .content > .info > .description {
+      font-size: 16px;
+      font-weight: $fw-medium;
+      margin-bottom: 30px;
+      color: $white;
+      text-align: center;
+      @include breakpoint-down(smallphone) {
+        font-size: $fs-normal;
+      }
+    }
+
+    > .content > .info > .description > .item {
+      line-height: 30px;
+    }
+
+    > .content > .info > .button {
+      padding: 15px 30px;
+      font-size: $fs-normal;
+      height: 50px;
+    }
+  }
+
+  &-contact {
+    background-image: url(https://demo2.wpopal.com/teapoz/wp-content/uploads/2023/05/ft1_bg.jpg);
+    background-size: cover;
+    padding: 20px;
+    max-width: 100%;
+    display: flex;
+
+    > .wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      width: 100%;
+      max-width: 970px;
+      padding: 20px;
+      position: relative;
+
+      @include breakpoint-down(tablet) {
+        padding-block: 20px;
+        padding-inline: 0;
+      }
+
+      @include breakpoint-down(phone) {
+        @include flex-column;
+        padding-block: 20px;
+        padding-inline: 0;
+      }
+    }
+
+    > .wrapper > .images {
+      position: absolute;
+      display: block;
+      margin-left: -300px;
+      top: -50px;
+
+      @include breakpoint-down(mediumdesktop) {
+        margin-left: -500px;
+      }
+    }
+
+    > .wrapper > .images > .image {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    > .wrapper > .title {
+      @include flex-center-column;
+      gap: 5px;
+      width: 30%;
+
+      @include breakpoint-down(tablet) {
+        @include flex-column;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    > .wrapper > .title > .heading {
+      font-size: 24px;
+      font-weight: $fw-semibold;
+      line-height: 24px;
+      flex-wrap: wrap;
+      color: $color-success;
+    }
+
+    > .wrapper > .title > .description {
+      font-size: $fs-normal;
+      font-weight: $fw-medium;
+      line-height: 24px;
+      color: $color-success;
+    }
+
+    > .wrapper > .search {
+      @include flex-center-column;
+      width: 65%;
+
+      @include breakpoint-down(phone) {
+        width: 100%;
+      }
+    }
+
+    > .wrapper > .search > .container {
+      padding-inline: 0;
+    }
+
+    > .wrapper > .search > .container > .field {
+      background-color: $white;
+      height: 55px;
+      border-radius: 5px 0 0 5px;
+      padding: 12px 30px;
+      border: 1px solid $white;
+    }
+
+    > .wrapper > .search > .container > .field > .input {
+      color: $black;
+
+      @include breakpoint-down(desktop) {
+        width: 430px;
+      }
+
+      @include breakpoint-down(phone) {
+        width: 100%;
+      }
+    }
+
+    > .wrapper > .search > .container > .field > .adornment.-end {
+      @include size(150px, 44px);
+      border-radius: 0 5px 5px 0;
+      margin-right: -35px;
+    }
+
+    > .wrapper > .search > .container > .field > .adornment > .btn {
+      @include size(100%, 55px);
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
